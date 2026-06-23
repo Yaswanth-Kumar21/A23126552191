@@ -1,19 +1,20 @@
 # Campus Notification Platform
 
-A full stack campus notification system where students receive updates about placements, events, and results.
+This is a full stack project I built for a campus notification system. The idea is simple - students should be able to see notifications about placements, college events, and exam results in one place.
 
-The project is organized into three parts: a reusable logging middleware, a system design document covering architecture and database decisions, and a React frontend application.
+I split the project into three main parts. First I built a logging middleware that records what is happening inside the app. Then I wrote a design document that covers how the system should work, what database to use, and how to handle performance issues. Finally I built the frontend using React so students can actually see and interact with the notifications.
 
-## Project Structure
+## What is inside this repo
 
-- logging-middleware — reusable Log() function that sends logs to the evaluation server
-- notification-system-design.md — system design covering API design, database schema, query optimization, caching, and bulk notification handling
-- priority-inbox.js — standalone script that ranks notifications by type weight and recency
-- notification-app-fe — React frontend with notifications listing and priority inbox
+The logging-middleware folder has the Log function which I use throughout the project to track events. Instead of using console.log I call this function and it sends the log to a server.
 
-## Setup
+The notification-system-design.md file has my answers to all the design questions. It covers the API structure, database design, query optimization, caching strategy, and bulk notification handling.
 
-Install and run the frontend:
+The priority-inbox.js file is a script that takes a list of notifications and returns the most important ones first. Placement notifications rank highest, then Results, then Events. Newer ones also rank higher.
+
+The notification-app-fe folder has the React app that students use to view their notifications.
+
+## How to run the frontend
 
 ```
 cd notification-app-fe
@@ -21,38 +22,38 @@ npm install
 npm run dev
 ```
 
-The app runs on http://localhost:3000
+Open http://localhost:3000 in your browser.
 
-## Output Screenshots
+## Screenshots
 
-### Notifications Page - Desktop
+### Notifications page on desktop
 
 ![Notifications Desktop](screenshots/notifications-desktop.png)
 
-### Notifications Page - Placement Filter
+### Filtering by Placement
 
 ![Notifications Filter](screenshots/notifications-filter-placement.png)
 
-### Priority Inbox - Desktop
+### Priority Inbox on desktop
 
 ![Priority Inbox Desktop](screenshots/priority-inbox-desktop.png)
 
-### Notifications Page - Mobile View
+### Notifications page on mobile
 
 ![Notifications Mobile](screenshots/notifications-mobile.png)
 
-### Priority Inbox - Mobile View
+### Priority Inbox on mobile
 
 ![Priority Inbox Mobile](screenshots/priority-inbox-mobile.png)
 
-### API - Auth Token
+### Getting the auth token from API
 
 ![Postman Auth](screenshots/postman-auth.png)
 
-### API - Notifications Response
+### Fetching notifications from API
 
 ![Postman Notifications](screenshots/postman-notifications.png)
 
-### API - Logging Middleware
+### Testing the logging middleware
 
 ![Logger Middleware Postman](screenshots/logger-middleware-postman.png)

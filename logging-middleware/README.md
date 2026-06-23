@@ -1,36 +1,32 @@
 # Logging Middleware
 
-A reusable logging package for the campus notification platform. Works across both backend and frontend (Node.js/JavaScript).
+This is a small reusable package I wrote to handle logging across the project. The idea came from the requirement that we should not use console.log anywhere. Instead every important action in the code should be logged using this function.
 
-## Usage
+The Log function takes four inputs and sends them to the evaluation server as a POST request. It also handles getting the auth token automatically so I do not have to worry about that every time I call it.
+
+## How to use it
 
 ```js
 const { Log } = require('./logging-middleware');
 
-await Log("backend", "info", "handler", "Processing notification request");
-await Log("frontend", "error", "api", "Failed to fetch notifications");
+await Log("backend", "info", "handler", "user requested notifications list");
+await Log("frontend", "error", "api", "failed to load notifications from server");
 ```
 
-## Function Signature
+## What each parameter means
 
-```
-Log(stack, level, package, message)
-```
+The first one is the stack, either backend or frontend depending on where you are calling it from.
 
-## Parameters
+The second one is the level. Use debug for detailed tracing, info for normal events, warn for something that might be a problem, error when something failed, and fatal when the whole app cannot continue.
 
-| Parameter | Allowed Values |
-|-----------|----------------|
-| stack | `backend`, `frontend` |
-| level | `debug`, `info`, `warn`, `error`, `fatal` |
-| package (backend) | `cache`, `controller`, `cron_job`, `db`, `domain`, `handler`, `repository`, `route`, `service` |
-| package (frontend) | `api`, `component`, `hook`, `page`, `state` |
-| package (shared) | `auth`, `config`, `middleware`, `utils`, `style` |
+The third one is the package, which tells where in the code the log is coming from.
+
+The fourth one is just the message describing what happened.
 
 ## Setup
 
-```bash
+```
 npm install
 ```
 
-The middleware handles authentication automatically using stored credentials and caches the token until expiry.
+After that you can import it and start using the Log function anywhere in the project.

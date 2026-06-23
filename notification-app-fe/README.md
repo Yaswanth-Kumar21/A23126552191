@@ -1,32 +1,22 @@
-# Campus Notification Frontend
+# Notification App Frontend
 
-A React application that displays campus notifications for students including Placements, Events, and Results.
+This is the React app I built for students to view their campus notifications. I took over an incomplete codebase and finished the implementation.
 
-## Features
+The app has two pages. The first one shows all notifications with a filter so you can see only Placements, Results, or Events. Unread notifications are highlighted with a blue dot on the left side and a bold title. Once you click on a notification it gets marked as read and the style changes. There is also a mark all read button at the top.
 
-- View all notifications with pagination
-- Filter notifications by type: Placement, Result, Event
-- Priority Inbox showing top N most important notifications ranked by type weight and recency
-- Mark notifications as read / mark all as read
-- Unread notification badge count
-- Responsive design using Material UI
+The second page is the Priority Inbox. It shows the most important notifications first. Placement notifications have the highest priority, followed by Results, and then Events. Newer notifications also rank higher. You can use the slider to choose how many you want to see, from 3 to 10.
 
-## Pages
+I used localStorage to track which notifications have been read so it persists when you refresh the page.
 
-- **Notifications** — full list with filter and pagination
-- **Priority Inbox** — top priority notifications with adjustable N (3 to 10)
+## How to run
 
-## Setup
-
-```bash
+```
 npm install
 npm run dev
 ```
 
-App runs on http://localhost:3000
+Go to http://localhost:3000 in your browser.
 
-## Tech Stack
+## What I used
 
-- React 19
-- Material UI
-- Vite
+React for building the UI, Material UI for the components and styling, and Vite as the build tool.
