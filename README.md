@@ -52,3 +52,7 @@ The app runs on http://localhost:3000
 ### API - Notifications Response
 
 ![Postman Notifications](screenshots/postman-notifications.png)
+
+### API - Logging Middleware
+
+![Logger Middleware Postman](screenshots/logger-middleware-postman.png)
