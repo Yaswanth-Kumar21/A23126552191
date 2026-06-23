@@ -19,7 +19,7 @@ export function usePriorityNotifications({ topN = 10, notification_type } = {}) 
     setLoading(true);
     setError(null);
     try {
-      const data = await fetchNotifications({ page: 1, limit: 100, notification_type });
+      const data = await fetchNotifications({ page: 1, limit: 10, notification_type });
       const all = data.notifications ?? [];
 
       const scored = all

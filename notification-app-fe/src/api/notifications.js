@@ -35,7 +35,7 @@ export async function fetchNotifications({ page = 1, limit = 10, notification_ty
   const token = await getToken();
 
   const params = new URLSearchParams({ page, limit });
-  if (notification_type && notification_type !== "All") {
+  if (notification_type && notification_type !== "All" && notification_type !== undefined) {
     params.append("notification_type", notification_type);
   }
 

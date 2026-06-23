@@ -10,8 +10,7 @@ import { usePriorityNotifications } from "../hooks/usePriorityNotifications";
 
 export function PriorityInboxPage() {
   const [topN, setTopN] = useState(10);
-  const [filter, setFilter] = useState("All");
-  const [readIds, setReadIds] = useState(() => {
+  const [filter, setFilter] = useState("All");  const [readIds, setReadIds] = useState(() => {
     try {
       return new Set(JSON.parse(localStorage.getItem("readNotifications") || "[]"));
     } catch {
@@ -51,14 +50,14 @@ export function PriorityInboxPage() {
         <Slider
           value={topN}
           onChange={(_, val) => setTopN(val)}
-          min={5}
-          max={20}
-          step={5}
+          min={3}
+          max={10}
+          step={1}
           marks={[
+            { value: 3, label: "3" },
             { value: 5, label: "5" },
-            { value: 10, label: "10" },
-            { value: 15, label: "15" },
-            { value: 20, label: "20" }
+            { value: 7, label: "7" },
+            { value: 10, label: "10" }
           ]}
           sx={{ maxWidth: 300 }}
         />
