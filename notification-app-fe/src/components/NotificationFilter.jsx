@@ -5,13 +5,16 @@ const filters = ["All", "Placement", "Result", "Event"];
 export function NotificationFilter({ value, onChange }) {
   return (
     <ToggleButtonGroup
-      value={value}
+      value={value || "All"}
       exclusive
       size="small"
+      onChange={(_, newValue) => {
+        if (newValue !== null) onChange(newValue);
+      }}
       sx={{ flexWrap: "wrap", gap: 0.5 }}
     >
       {filters.map((type) => (
-        <ToggleButton value={type} sx={{ textTransform: "none", px: 2 }}>
+        <ToggleButton key={type} value={type} sx={{ textTransform: "none", px: 2 }}>
           {type}
         </ToggleButton>
       ))}
